@@ -1,0 +1,498 @@
+/* --- Stiluri Generale --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Montserrat:wght@400;500&display=swap');
+
+body {
+    margin: 0; /* Eliminăm marginea standard pe care o adaugă browserul */
+    font-family: 'Montserrat', sans-serif; /* Acesta va fi fontul de bază, curat și modern */
+    background-color: #fdfdfd; /* Un alb foarte discret, mai cald decât albul pur */
+    color: #333; /* Un gri închis pentru text, mai plăcut ochiului decât negru complet */
+}
+
+a {
+    text-decoration: none; /* Scoatem sublinierea de pe TOATE link-urile */
+    color: inherit; /* Link-urile vor moșteni culoarea părintelui lor */
+}
+
+/* --- Stiluri pentru Antet (Header) --- */
+header {
+    display: flex; /* MAGIC! Activăm Flexbox */
+    justify-content: space-between; /* Trimite logo-ul la un capăt și meniul la celălalt */
+    align-items: center; /* Aliniază elementele perfect pe verticală, la centru */
+    padding: 20px 50px; /* Adaugă spațiu: 20px sus/jos, 50px stânga/dreapta */
+    background-color: white; /* Fundal alb pentru antet */
+    border-bottom: 1px solid #eaeaea; /* O linie gri, fină, de separare */
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif; /* Un font elegant, clasic, pentru logo */
+    font-size: 28px;
+    font-weight: 700;
+}
+
+nav a {
+    margin-left: 35px; /* Adaugă spațiu la stânga fiecărui link din meniu */
+    font-weight: 500; /* Îngroșăm puțin textul meniului */
+    font-size: 16px;
+    color: #555;
+    transition: color 0.3s ease-in-out; /* Adaugă o tranziție lină a culorii la hover */
+}
+
+nav a:hover {
+    color: #b99d6b; /* O culoare aurie, elegantă, la trecerea mouse-ului */
+}
+
+/* --- Stiluri pentru Sectiunea Hero --- */
+.hero {
+    display: flex; /* Folosim din nou Flexbox pentru a centra conținutul */
+    justify-content: center;
+    align-items: center;
+    height: 85vh; /* Ocupă 85% din înălțimea vizibilă a ecranului */
+    padding: 0 20px;
+    text-align: center;
+    color: white; /* Culoarea textului va fi albă pentru contrast */
+
+    /* Setarea imaginii de fundal */
+    /* ATENȚIE la cale! ../ înseamnă "ieși din folderul curent (css)" */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imagini/hero-background.jpg');
+    background-size: cover; /* Imaginea va acoperi tot spațiul disponibil */
+    background-position: center; /* Imaginea va fi mereu centrată */
+    background-attachment: fixed; /* MAGIC! Creează un efect de parallax la scroll */
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 60px); /* Mărime fluidă, se adaptează, dar are limite min/max */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px; /* Previne textul să devină prea lat pe ecrane mari */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #b99d6b; /* Culoarea aurie de accent pe care am definit-o */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase; /* Facem textul butonului cu majuscule */
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05); /* Mărim ușor butonul la hover pentru un efect dinamic */
+}
+
+/* --- Secțiunea Despre Noi --- */
+.despre {
+    display: flex; /* Activăm Flexbox pentru layout-ul pe două coloane */
+    align-items: center; /* Aliniem conținutul pe verticală la centru */
+    gap: 50px; /* Adaugă un spațiu de 50px între coloane */
+    padding: 100px 50px; /* Spațiu generos în jurul secțiunii */
+    background-color: #ffffff; /* Fundal alb curat */
+}
+
+.despre-continut,
+.despre-imagine {
+    flex: 1; /* Spunem ambelor coloane să ocupe spațiu egal (50% fiecare) */
+}
+
+.despre-imagine img {
+    width: 100%; /* Imaginea va umple containerul său */
+    height: auto; /* Păstrează proporțiile corecte */
+    border-radius: 5px; /* Rotunjim ușor colțurile */
+    display: block; /* Elimină un mic spațiu care poate apărea sub imagine */
+}
+
+.despre h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    color: #333;
+    margin-top: 0; /* Scoatem marginea de sus a titlului */
+    margin-bottom: 20px;
+}
+
+.despre p {
+    line-height: 1.7; /* Spațiere mai mare între rânduri pentru lizibilitate */
+    margin-bottom: 30px;
+}
+
+.buton-secundar {
+    display: inline-block;
+    border: 2px solid #b99d6b; /* Contur auriu */
+    color: #b99d6b; /* Text auriu */
+    padding: 12px 28px;
+    border-radius: 3px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease; /* Tranziție pentru toate proprietățile */
+}
+
+.buton-secundar:hover {
+    background-color: #b99d6b; /* La hover, fundalul devine auriu */
+    color: white; /* Iar textul devine alb */
+}
+
+/* --- Secțiunea Servicii --- */
+.servicii {
+    padding: 100px 50px;
+    background-color: #f9f9f9; /* Un gri foarte deschis pentru contrast vizual */
+    text-align: center;
+}
+
+.container-titlu {
+    max-width: 700px; /* Limităm lățimea titlului și subtitlului */
+    margin: 0 auto 60px auto; /* Centrează containerul și adaugă spațiu sub el */
+}
+
+.container-titlu h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.subtitlu {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.servicii-container {
+    display: flex;
+    justify-content: center; /* Centrează cardurile pe orizontală */
+    gap: 30px; /* Creează spațiu între carduri */
+    flex-wrap: wrap; /* Permite cardurilor să treacă pe rândul următor pe ecrane mici */
+}
+
+.card-serviciu {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* O umbră foarte subtilă */
+    flex-basis: 320px; /* O lățime de bază pentru fiecare card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-serviciu:hover {
+    transform: translateY(-10px); /* Ridică ușor cardul la hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Mărește umbra pentru un efect 3D */
+}
+
+.icon-serviciu {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.card-serviciu h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card-serviciu p {
+    line-height: 1.6;
+    color: #666;
+    font-size: 15px;
+}
+
+/* --- Secțiunea Call to Action (CTA) --- */
+.cta {
+    padding: 100px 50px;
+    text-align: center;
+    color: white;
+
+    /* Fundal cu imagine, suprapunere de culoare și un efect special */
+    background-image: linear-gradient(rgba(40, 40, 40, 0.7), rgba(40, 40, 40, 0.7)), url('../imagini/cta-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* MAGIC! Creează un efect de parallax la scroll */
+}
+
+.container-cta {
+    max-width: 800px; /* Limităm lățimea conținutului */
+    margin: 0 auto; /* Centrarea containerului */
+}
+
+.cta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* --- Stiluri pentru Subsol (Footer) --- */
+footer {
+    background-color: #2c2c2c; /* Un gri foarte închis, aproape negru */
+    color: #ccc; /* Text principal gri deschis */
+    padding: 60px 50px 20px 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Permite coloanelor să se reașeze pe ecrane mici */
+}
+
+.footer-coloana {
+    flex: 1;
+    min-width: 200px; /* O lățime minimă pentru fiecare coloană */
+}
+
+.footer-coloana h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.footer-coloana p, .footer-coloana ul {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.footer-coloana ul {
+    list-style: none; /* Scoatem bulinele de la listă */
+    padding: 0;
+}
+
+.footer-coloana ul li {
+    margin-bottom: 10px;
+}
+
+.footer-coloana a:hover {
+    color: #b99d6b; /* Accentul auriu la hover */
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%; /* Creează un cerc */
+    background-color: #444;
+    color: white;
+    margin-right: 10px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #b99d6b;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #888;
+}
+
+/* --- Stiluri Generale pentru Pagini Interioare --- */
+.container-pagina {
+    max-width: 1200px; /* Lățimea maximă a conținutului */
+    margin: 0 auto; /* Centrarea automată pe pagină */
+    padding: 80px 50px; /* Spațiu de aerisire sus/jos și stânga/dreapta */
+}
+
+/* --- Stiluri Specifice pentru Pagina Galerie --- */
+.galerie-grid {
+    display: grid; /* MAGIC! Activăm CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 coloane de lățime egală (1fr = 1 fracție) */
+    gap: 20px; /* Spațiu de 20px între toate imaginile, pe toate direcțiile */
+    margin-top: 50px;
+}
+
+.item-grid {
+    overflow: hidden; /* Ascunde ce depășește containerul (pentru efectul de zoom) */
+    border-radius: 5px; /* Rotunjim colțurile fiecărui item */
+    aspect-ratio: 1 / 1; /* Forțează fiecare item să fie un pătrat perfect */
+}
+
+.item-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Imaginea umple containerul pătrat fără a se deforma */
+    display: block; /* Elimină un mic spațiu sub imagine */
+    transition: transform 0.4s ease-in-out;
+}
+
+.item-grid:hover img {
+    transform: scale(1.1); /* Mărește ușor imaginea la trecerea mouse-ului */
+}
+
+/* --- Stiluri pentru Pagina de Contact --- */
+.contact-container {
+    display: flex;
+    gap: 50px;
+    margin-top: 50px;
+    text-align: left; /* Suprascriem text-align: center de pe containerul principal */
+}
+
+.formular-contact {
+    flex: 2; /* Formularul va fi de două ori mai lat decât coloana de info */
+}
+
+.info-contact {
+    flex: 1; /* Coloana de info ocupă o treime */
+}
+
+.grup-formular {
+    margin-bottom: 25px;
+}
+
+.grup-formular label {
+    display: block; /* Eticheta stă deasupra câmpului */
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+    font-size: 15px;
+}
+
+.grup-formular input,
+.grup-formular textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box; /* Asigură că padding-ul nu mărește lățimea totală */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grup-formular input:focus,
+.grup-formular textarea:focus {
+    outline: none;
+    border-color: #b99d6b; /* Accent auriu la focus (când dai click pe câmp) */
+    box-shadow: 0 0 8px rgba(185, 157, 107, 0.4);
+}
+
+.info-contact h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #b99d6b;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.info-contact p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.info-contact a {
+    color: #b99d6b;
+    font-weight: 500;
+}
+
+/* Stilul pentru butonul de trimitere refolosește .cta-button, dar îl facem să ocupe toată lățimea */
+.formular-contact .cta-button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- Stiluri pentru Pagina Despre Noi --- */
+
+/* Inversăm ordinea coloanelor pentru secțiunea .despre de pe această pagină */
+.despre.despre-inversat {
+    flex-direction: row-reverse; /* Magic! Inversează ordinea elementelor flex */
+}
+
+/* Ajustăm padding-ul pentru conținutul text, acum că este în dreapta */
+.despre.despre-inversat .despre-continut {
+    padding-right: 0;
+    padding-left: 50px;
+}
+
+.valori {
+    text-align: center;
+    margin-top: 80px; /* Spațiu între secțiunea de sus și cea de valori */
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Aceeași culoare ca la secțiunea servicii */
+}
+
+.valori h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    margin-bottom: 60px;
+    margin-top: 0;
+}
+
+/* --- Stiluri pentru Pagina de Servicii --- */
+.lista-servicii {
+    list-style: none; /* Scoatem bulinele standard */
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.lista-servicii li {
+    padding-left: 30px; /* Facem loc pentru iconița-bifă */
+    position: relative; /* Necesar pentru a poziționa elementul "before" */
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Adăugăm o bifă stilizată în fața fiecărui element din listă folosind un pseudo-element */
+.lista-servicii li::before {
+    content: '✓'; /* Caracterul "bifă" */
+    color: #b99d6b; /* Culoarea aurie de accent */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Adăugăm un pic de spațiu între secțiunile de servicii de pe pagină */
+main > section.despre {
+    padding-top: 0;
+    padding-bottom: 40px;
+}
+
+/* --- Stiluri pentru Mesaje de Notificare Formular --- */
+.mesaj-succes, .mesaj-eroare {
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid transparent;
+}
+
+.mesaj-succes {
+    background-color: #dff0d8; /* Un verde pal */
+    color: #3c763d; /* Un verde închis pentru text */
+    border-color: #d6e9c6;
+}
+
+.mesaj-eroare {
+    background-color: #f2dede; /* Un roșu pal */
+    color: #a94442; /* Un roșu închis pentru text */
+    border-color: #ebccd1;
+}

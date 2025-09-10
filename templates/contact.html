@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Hanul Mare Baleni</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+   <header>
+        <a href="index.html" class="logo">Hanul Mare Băleni</a>
+        <nav>
+            <a href="templates/index.html">Acasă</a>
+            <a href="templates/despre.html">Despre Noi</a>
+            <a href="templates/servicii.html">Servicii</a>
+            <a href="templates/galerie.html">Galerie</a>
+            <a href="templates/contact.html">Contact</a>
+        </nav>
+    </header>
+    <main class="container-pagina">
+        <h1>Contactează-ne</h1>
+        <p class="subtitlu">Ai o întrebare sau dorești o ofertă personalizată? Completează formularul de mai jos și echipa noastră te va contacta în cel mai scurt timp.</p>
+        {% if succes %}
+            <div class="mesaj-succes">
+                Mesajul tău a fost trimis cu succes! Îți mulțumim.
+            </div>
+        {% endif %}
+
+        {% if eroare %}
+            <div class="mesaj-eroare">
+                {{ mesaj_eroare }}
+            </div>
+        {% endif %}
+        <div class="contact-container">
+            <div class="formular-contact">
+                <form action="/trimite-formular" method="post">
+                    <div class="grup-formular">
+                        <label for="nume">Numele Tău</label>
+                        <input type="text" id="nume" name="nume" required>
+                    </div>
+                    <div class="grup-formular">
+                        <label for="email">Adresa de Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="grup-formular">
+                        <label for="mesaj">Mesajul Tău</label>
+                        <textarea id="mesaj" name="mesaj" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Trimite Mesajul</button>
+                </form>
+            </div>
+            <div class="info-contact">
+                <h3>Informații Directe</h3>
+                <p><strong>Adresă:</strong><br>Strada Principală, Nr. 10<br>Băleni, Dâmbovița, 137015</p>
+                <p><strong>Telefon:</strong><br><a href="tel:+40721234567">0721 234 567</a></p>
+                <p><strong>Email:</strong><br><a href="mailto:contact@hanulmarebaleni.ro">contact@hanulmarebaleni.ro</a></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-coloana">
+                <h4>Hanul Mare Băleni</h4>
+                <p>
+                    Strada Principală, Nr. 10<br>
+                    Băleni, Dâmbovița, 137015
+                </p>
+                <p>contact@hanulmarebaleni.ro</p>
+            </div>
+            <div class="footer-coloana">
+                <h4>Linkuri Utile</h4>
+                <ul>
+                    <li><a href="templates/index.html">Acasă</a></li>
+                    <li><a href="templates/despre.html">Despre Noi</a></li>
+                    <li><a href="templates/servicii.html">Servicii</a></li>
+                    <li><a href="templates/galerie.html">Galerie</a></li>
+                    <li><a href="templates/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-coloana">
+                <h4>Urmărește-ne</h4>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">Fb</a>
+                    <a href="#" title="Instagram">In</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hanul Mare Băleni. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+    <script>
+        // Așteptăm ca întreaga pagină să fie încărcată
+        document.addEventListener('DOMContentLoaded', function() {
+            // Căutăm în pagină dacă există un element cu clasa 'mesaj-succes' sau 'mesaj-eroare'
+            const mesajSucces = document.querySelector('.mesaj-succes');
+            const mesajEroare = document.querySelector('.mesaj-eroare');
+
+            // Dacă am găsit mesajul de succes, golim formularul imediat
+            if (mesajSucces) {
+                document.querySelector('.formular-contact form').reset();
+            }
+
+            // Verificăm dacă a fost afișat FIE mesajul de succes, FIE cel de eroare
+            if (mesajSucces || mesajEroare) {
+                // Setăm un cronometru care va rula o funcție după 3 secunde (3000 milisecunde)
+                setTimeout(function() {
+                    // După ce trec cele 3 secunde, comandăm browserului să navigheze 
+                    // către pagina de contact curată.
+                    window.location.href = '/contact.html';
+                }, 3000); // 3000ms = 3 secunde
+            }
+        });
+    </script>
+</body>
+</html>
